@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay for Parking - QuickPark</title>
+<style>
+body { font-family: Verdana, sans-serif; background: #e9e9e9; margin: 0; }
+.top { background: #006837; padding: 12px 16px; color: white; }
+.top span { font-size: 16px; font-weight: bold; }
+.top small { display: block; font-size: 10px; color: #a5d6a7; margin-top: 2px; }
+.wrap { max-width: 400px; margin: 10px auto; padding: 0 10px; }
+.box { background: white; border: 1px solid #ccc; border-radius: 3px; padding: 12px; margin-bottom: 10px; }
+.box h3 { font-size: 13px; margin: 0 0 8px; color: #333; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+table { width: 100%; font-size: 12px; border-collapse: collapse; }
+td { padding: 3px 0; }
+td:first-child { color: #777; width: 35%; }
+td:last-child { color: #222; }
+.tbtn { display: flex; gap: 5px; margin: 6px 0; }
+.tbtn button { flex: 1; padding: 10px 4px; border: 1px solid #aaa; border-radius: 3px; background: #fafafa; font-size: 12px; cursor: pointer; }
+.tbtn button.on { border-color: #006837; background: #e8f5e9; font-weight: bold; }
+.tbtn button small { display: block; color: #666; font-weight: normal; font-size: 11px; }
+.yel { background: #fffde7; border: 1px solid #ddd066; font-size: 11px; padding: 7px 9px; border-radius: 2px; margin-bottom: 10px; color: #6b6200; }
+label { font-size: 11px; color: #555; display: block; margin: 0 0 2px; }
+input { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 2px; font-size: 14px; margin-bottom: 8px; box-sizing: border-box; }
+input:focus { outline: 1px solid #006837; }
+.pl { text-transform: uppercase; letter-spacing: 2px; font-weight: bold; font-size: 15px; text-align: center; background: #fafaf2; }
+.r2 { display: flex; gap: 5px; }
+.r2 > div { flex: 1; }
+.tot { display: flex; justify-content: space-between; border-top: 2px solid #006837; padding-top: 8px; margin-top: 4px; font-size: 14px; }
+.tot b { color: #006837; font-size: 17px; }
+.go { width: 100%; padding: 13px; background: #006837; color: white; font-size: 14px; font-weight: bold; border: none; border-radius: 3px; cursor: pointer; margin-top: 5px; }
+.lk { text-align: center; font-size: 10px; color: #aaa; margin-top: 8px; }
+.ft { text-align: center; font-size: 9px; color: #aaa; padding: 12px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="top">
+<span>🅿️ QuickPark</span>
+<small>Mobile Parking Payment</small>
+</div>
+<div class="wrap">
+
+<div class="box">
+<h3>Parking Session</h3>
+<table>
+<tr><td>Zone:</td><td>B-14 Downtown</td></tr>
+<tr><td>Location:</td><td>Broughton St Garage, Savannah</td></tr>
+<tr><td>Rate:</td><td>$3.50/hr</td></tr>
+<tr><td>Max stay:</td><td>10 hours</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h3>Select Time</h3>
+<div class="tbtn">
+<button onclick="pk(this,3.50)">1 hr<small>$3.50</small></button>
+<button class="on" onclick="pk(this,7.00)">2 hr<small>$7.00</small></button>
+<button onclick="pk(this,10.50)">3 hr<small>$10.50</small></button>
+<button onclick="pk(this,18.00)">All Day<small>$18.00</small></button>
+</div>
+</div>
+
+<div class="yel">Make sure your plate number is right — enforcement scans plates automatically. Wrong plate = ticket even if you paid.</div>
+
+<div class="box">
+<h3>Vehicle</h3>
+<label>License Plate</label>
+<input type="text" class="pl" placeholder="ABC 1234" maxlength="8">
+<label>Email for receipt</label>
+<input type="email" placeholder="you@email.com">
+</div>
+
+<div class="box">
+<h3>Card Info</h3>
+<label>Name on card</label>
+<input type="text" placeholder="J Smith">
+<label>Card number</label>
+<input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+<div class="r2">
+<div><label>Exp</label><input type="text" placeholder="MM/YY" maxlength="5"></div>
+<div><label>CVC</label><input type="text" placeholder="123" maxlength="4"></div>
+<div><label>Zip</label><input type="text" placeholder="31401" maxlength="5"></div>
+</div>
+<div class="tot">
+<span>Total (incl $0.75 fee)</span>
+<b id="t">$7.75</b>
+</div>
+<button class="go" onclick="alert('DEMO PAGE for SafeScan testing. No data collected.')">Pay Now</button>
+<div class="lk">🔒 Secure payment</div>
+</div>
+
+</div>
+<div class="ft">
+QuickPark LLC · Terms · Privacy<br>
+Third-party processor. Not affiliated with City of Savannah.<br>
+help@quickpark-pay.net<br>
+<i>DEMO for SafeScan testing. No data collected.</i>
+</div>
+<script>
+function pk(e,p){document.querySelectorAll('.tbtn button').forEach(b=>b.classList.remove('on'));e.classList.add('on');document.getElementById('t').textContent='$'+(p+.75).toFixed(2)}
+</script>
+</body>
+</html>
