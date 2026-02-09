@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PARKING VIOLATION - Immediate Payment Required</title>
+<style>
+body { margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; }
+.red-bar { background: #cc0000; color: white; text-align: center; padding: 8px; font-size: 12px; font-weight: bold; }
+.hdr { background: #1a237e; color: white; padding: 14px 16px; }
+.hdr b { font-size: 15px; }
+.hdr div { font-size: 10px; color: #9fa8da; margin-top: 2px; }
+.w { max-width: 400px; margin: 0 auto; padding: 10px; }
+.card { background: white; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 2px; }
+.card-h { background: #fce4ec; padding: 10px 12px; border-bottom: 1px solid #e0e0e0; }
+.card-h b { color: #b71c1c; font-size: 14px; }
+.card-h small { display: block; color: #888; font-size: 10px; margin-top: 2px; }
+.card-b { padding: 12px; }
+.row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px dotted #eee; }
+.row:last-child { border: none; }
+.row span:first-child { color: #888; }
+.row span:last-child { color: #222; font-weight: 600; }
+.amt { text-align: center; margin: 10px 0; }
+.amt .old { color: #999; text-decoration: line-through; font-size: 14px; }
+.amt .big { font-size: 34px; font-weight: 900; color: #c62828; }
+.amt .disc { color: green; font-size: 11px; font-weight: bold; }
+.tmr { background: #b71c1c; color: white; border-radius: 3px; padding: 10px; text-align: center; margin-bottom: 10px; }
+.tmr div:first-child { font-size: 11px; font-weight: bold; }
+.tmr .big { font-size: 28px; font-weight: 900; font-family: Courier New, monospace; margin: 4px 0; }
+.tmr small { font-size: 9px; opacity: .8; }
+.warn { background: #fff3e0; border-left: 3px solid #e65100; padding: 8px 10px; margin-bottom: 10px; font-size: 11px; color: #4e342e; line-height: 1.5; }
+label { font-size: 11px; color: #555; display: block; margin: 0 0 2px; }
+input { width: 100%; padding: 9px 8px; border: 1px solid #bbb; border-radius: 2px; font-size: 14px; margin-bottom: 8px; box-sizing: border-box; }
+input:focus { outline: 1px solid #1a237e; }
+.r2 { display: flex; gap: 5px; }
+.r2 > div { flex: 1; }
+.btn { width: 100%; padding: 14px; background: #c62828; color: white; font-size: 15px; font-weight: bold; border: none; border-radius: 3px; cursor: pointer; margin-top: 4px; }
+.badges { display: flex; justify-content: center; gap: 14px; font-size: 9px; color: #999; margin-top: 10px; }
+.ft { text-align: center; font-size: 8px; color: #bbb; padding: 14px 10px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="red-bar">⚠ UNPAID CITATION — VEHICLE SUBJECT TO TOWING ⚠</div>
+<div class="hdr">
+<b>🅿️ City Parking Enforcement</b>
+<div>Savannah Municipal Parking Authority</div>
+</div>
+<div class="w">
+
+<div class="card">
+<div class="card-h">
+<b>Parking Violation Notice</b>
+<small>Citation #SVH-2025-48291 · Issued today</small>
+</div>
+<div class="card-b">
+<div class="row"><span>Violation</span><span>Expired Meter (Zone A-7)</span></div>
+<div class="row"><span>Location</span><span>Broughton St & Bull St</span></div>
+<div class="row"><span>Date</span><span id="dt"></span></div>
+<div class="row"><span>Vehicle</span><span>Plate ····7K</span></div>
+<div class="row"><span>Officer</span><span>Badge #4417</span></div>
+</div>
+</div>
+
+<div class="amt">
+<div class="old">$125.00</div>
+<div class="big">$65.00</div>
+<div class="disc">48% early-pay discount — limited time</div>
+</div>
+
+<div class="tmr">
+<div>DISCOUNT EXPIRES IN</div>
+<div class="big" id="cd">14:59</div>
+<small>After this the full $125 fine + towing fees apply</small>
+</div>
+
+<div class="warn">
+<b>What happens if you dont pay:</b><br>
+· 24 hrs — $50 late fee added<br>
+· 3 days — boot placed on vehicle<br>
+· 7 days — towed & impounded ($350+)<br>
+· 30 days — sent to collections, may affect credit score
+</div>
+
+<div class="card">
+<div class="card-b">
+<label>Full Name</label>
+<input type="text" placeholder="John Smith">
+<label>Email</label>
+<input type="email" placeholder="email@example.com">
+<label>Phone Number</label>
+<input type="tel" placeholder="(555) 123-4567">
+<label>Drivers License #</label>
+<input type="text" placeholder="GA-1234567">
+<label>Card Number</label>
+<input type="text" placeholder="4242 4242 4242 4242" maxlength="19">
+<div class="r2">
+<div><label>Exp</label><input type="text" placeholder="MM/YY" maxlength="5"></div>
+<div><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+</div>
+<label>Billing Zip</label>
+<input type="text" placeholder="31401" maxlength="5">
+<button class="btn" onclick="alert('DEMO PAGE for SafeScan testing. No data collected.')">PAY $65.00 — RESOLVE NOW</button>
+<div class="badges">
+<span>🔒 SSL Secured</span>
+<span>✓ PCI Compliant</span>
+<span>Municipal Partner</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="ft">
+savannah-parking-citations.com<br>
+Operated by ParkFine Solutions LLC on behalf of participating municipalities.<br>
+Not directly affiliated with City of Savannah government offices.<br>
+<i>DEMO for SafeScan testing. No data collected.</i>
+</div>
+<script>
+var d=new Date();document.getElementById('dt').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' — '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+var t=899;setInterval(function(){if(t<1)return;t--;var m=Math.floor(t/60),s=t%60;document.getElementById('cd').textContent=m+':'+(s<10?'0':'')+s;},1000);
+</script>
+</body>
+</html>
